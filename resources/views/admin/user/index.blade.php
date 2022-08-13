@@ -26,6 +26,7 @@
     <div class="row">
         <div class="col-12">
             <a href="{{ route('user.export') }}" class="btn btn-success float-right text-white mb-2"><i class="fa-light fa-file-excel"></i> Export Excel</a>
+            <a href="{{ route('user.export_pdf') }}" class="btn btn-danger float-right text-white mb-2" style="margin-right: 3px"><i class="fa-light fa-file-pdf"></i> Export PDF</a>
         </div>
         <div class="col-12">
             <div class="card">
@@ -55,7 +56,15 @@
                                                 <td>{{ $item->email }}</td>
                                                 <td>{{ $item->relatedDetailUser->relatedHobby->hobby_name }}</td>
                                                 <td>{{ $item->relatedDetailUser->relatedPosition->position_name }}</td>
-                                                <td>{{ $item->relatedDetailUser->position_status }}</td>
+                                                <td>
+                                                    @if ($item->relatedDetailUser->position_status == 'freelance')
+                                                        Freelance
+                                                    @elseif ($item->relatedDetailUser->position_status == 'permanent_employee')
+                                                        Karyawan Tetap
+                                                    @elseif ($item->relatedDetailUser->position_status == 'internship')
+                                                        Internship
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

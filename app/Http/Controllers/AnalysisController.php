@@ -6,6 +6,7 @@ use App\Exports\AnalysisExport;
 use App\Models\Analysis;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class AnalysisController extends Controller
 {
@@ -97,5 +98,15 @@ class AnalysisController extends Controller
     public function export()
     {
         return Excel::download(new AnalysisExport, 'Data Hasil Kuis.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $analysis = Analysis::orderBy('created_at', 'desc')->get();
+
+        $pdf = PDF::loadView('admin.analysis.export.pdf', compact('analysis'));
+
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('Data Hasil Kuis.pdf');
     }
 }

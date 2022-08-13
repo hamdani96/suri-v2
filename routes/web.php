@@ -63,10 +63,12 @@ Route::prefix('quiz')->group(function() {
 
 Route::prefix('user')->group(function() {
     Route::get('export', [UserController::class, 'export'])->name('user.export');
+    Route::get('export_pdf', [UserController::class, 'export_pdf'])->name('user.export_pdf');
 });
 
 Route::prefix('analysis')->group(function() {
     Route::get('export', [AnalysisController::class, 'export'])->name('analysis.export');
+    Route::get('export_pdf', [AnalysisController::class, 'export_pdf'])->name('analysis.export_pdf');
 });
 
 Route::resource('hobby', HobbyController::class);

@@ -6,6 +6,7 @@ use App\Exports\UserExport;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class UserController extends Controller
 {
@@ -95,5 +96,15 @@ class UserController extends Controller
     public function export()
     {
         return Excel::download(new UserExport, 'Data User.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $users = User::where('role', 'user')->orderBy('created_at', 'desc')->get();
+
+        $pdf = PDF::loadView('admin.user.export.pdf', compact('users'));
+
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('Data User.pdf');
     }
 }
