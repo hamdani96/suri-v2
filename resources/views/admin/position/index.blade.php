@@ -27,6 +27,7 @@
         <div class="col-12">
             <a href="#modal-create" data-bs-toggle="modal" class="btn btn-primary mb-2"><i class="fa fa-plus-square"></i> Tambah Data</a>
             <a href="{{ route('position.export') }}" class="btn btn-success float-right text-white mb-2"><i class="fa-light fa-file-excel"></i> Export Excel</a>
+            <a href="{{ route('position.export_pdf') }}" class="btn btn-danger float-right text-white mb-2" style="margin-right: 3px"><i class="fa-light fa-file-pdf"></i> Export PDF</a>
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Data Jabatan</h4>

@@ -7,6 +7,7 @@ use App\Models\Training;
 use Illuminate\Http\Request;
 use Throwable;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class TrainingController extends Controller
 {
@@ -185,5 +186,15 @@ class TrainingController extends Controller
     public function export()
     {
         return Excel::download(new TrainingExport, 'Data Training.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $trainings = Training::orderBy('created_at', 'desc')->get();
+
+        $pdf = PDF::loadView('admin.training.export.pdf', compact('trainings'));
+
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('Data Training.pdf');
     }
 }

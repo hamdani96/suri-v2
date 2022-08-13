@@ -7,6 +7,7 @@ use App\Models\Position;
 use Illuminate\Http\Request;
 use Throwable;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class PositionController extends Controller
 {
@@ -151,5 +152,15 @@ class PositionController extends Controller
     public function export()
     {
         return Excel::download(new PositionExport, 'Data Jabatan.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $positions = Position::orderBy('position_name', 'asc')->get();
+
+        $pdf = PDF::loadView('admin.position.export.pdf', compact('positions'));
+
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->download('Data Jabatan.pdf');
     }
 }

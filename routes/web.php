@@ -38,23 +38,26 @@ Route::prefix('admin')->group(function() {
 });
 
 Route::prefix('hobby')->group(function() {
-    // export
     Route::get('export', [HobbyController::class, 'export'])->name('hobby.export');
+    Route::get('export_pdf', [HobbyController::class, 'export_pdf'])->name('hobby.export_pdf');
     Route::get('delete/{id}', [HobbyController::class, 'delete'])->name('hobby.delete');
 });
 
 Route::prefix('position')->group(function() {
     Route::get('export', [PositionController::class, 'export'])->name('position.export');
+    Route::get('export_pdf', [PositionController::class, 'export_pdf'])->name('position.export_pdf');
     Route::get('delete/{id}', [PositionController::class, 'delete'])->name('position.delete');
 });
 
 Route::prefix('training')->group(function() {
     Route::get('export', [TrainingController::class, 'export'])->name('training.export');
+    Route::get('export_pdf', [TrainingController::class, 'export_pdf'])->name('training.export_pdf');
     Route::get('delete/{id}', [TrainingController::class, 'delete'])->name('training.delete');
 });
 
 Route::prefix('quiz')->group(function() {
     Route::get('export', [QuizController::class, 'export'])->name('quiz.export');
+    Route::get('export_pdf', [QuizController::class, 'export_pdf'])->name('quiz.export_pdf');
     Route::get('delete/{id}', [QuizController::class, 'delete'])->name('quiz.delete');
 });
 

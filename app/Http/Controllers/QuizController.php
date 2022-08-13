@@ -7,6 +7,7 @@ use App\Models\Quiz;
 use Illuminate\Http\Request;
 use Throwable;
 use Maatwebsite\Excel\Facades\Excel;
+use Barryvdh\DomPDF\Facade\PDF;
 
 class QuizController extends Controller
 {
@@ -174,5 +175,15 @@ class QuizController extends Controller
     public function export()
     {
         return Excel::download(new QuizExport, 'Data Kuis.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $quizs = Quiz::orderBy('sequence', 'asc')->get();
+
+        $pdf = PDF::loadView('admin.quiz.export.pdf', compact('quizs'));
+
+        $pdf->setPaper('A4', 'landscape');
+        return $pdf->download('Data Kuis.pdf');
     }
 }

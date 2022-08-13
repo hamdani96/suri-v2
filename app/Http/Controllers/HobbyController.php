@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\HobbyExport;
 use App\Models\Hobby;
+use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use Throwable;
@@ -150,5 +151,15 @@ class HobbyController extends Controller
     public function export()
     {
         return Excel::download(new HobbyExport, 'Data Hobi.xlsx');
+    }
+
+    public function export_pdf()
+    {
+        $hobbies = Hobby::orderBy('hobby_name', 'asc')->get();
+
+        $pdf = PDF::loadView('admin.hobby.export.pdf', compact('hobbies'));
+
+        $pdf->setPaper('A4', 'potrait');
+        return $pdf->download('Data Hobi.pdf');
     }
 }

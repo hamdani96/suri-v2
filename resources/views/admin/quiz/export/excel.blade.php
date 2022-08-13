@@ -28,8 +28,14 @@
                     @endif
                 </td>
                 <td>{{ $item->relatedCreatedBy->name }}</td>
-                <td>{{ $item->created_at }}</td>
-                <td>{{ $item->updated_at ?? '-' }}</td>
+                <td>{{ \Carbon\Carbon::parse($item->created_at)->isoFormat('dddd, D MMM Y') }}</td>
+                <td>
+                    @if ($item->updated_at != null)
+                        {{ \Carbon\Carbon::parse($item->updated_at)->isoFormat('dddd, D MMM Y') }}
+                    @else
+                    -
+                    @endif
+                </td>
             </tr>
         @endforeach
     </tbody>
