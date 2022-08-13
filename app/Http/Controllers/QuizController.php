@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\QuizExport;
 use App\Models\Quiz;
 use Illuminate\Http\Request;
 use Throwable;
+use Maatwebsite\Excel\Facades\Excel;
 
 class QuizController extends Controller
 {
@@ -167,5 +169,10 @@ class QuizController extends Controller
         } catch (Throwable $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new QuizExport, 'Data Kuis.xlsx');
     }
 }

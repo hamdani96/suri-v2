@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TrainingExport;
 use App\Models\Training;
 use Illuminate\Http\Request;
 use Throwable;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TrainingController extends Controller
 {
@@ -178,5 +180,10 @@ class TrainingController extends Controller
         } catch (Throwable $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new TrainingExport, 'Data Training.xlsx');
     }
 }

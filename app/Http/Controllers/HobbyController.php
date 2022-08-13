@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\HobbyExport;
 use App\Models\Hobby;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Throwable;
 
 class HobbyController extends Controller
@@ -143,5 +145,10 @@ class HobbyController extends Controller
         } catch (Throwable $e) {
             return redirect()->back()->with('error', 'Delete Gagal '. $e->getMessage());
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new HobbyExport, 'Data Hobi.xlsx');
     }
 }

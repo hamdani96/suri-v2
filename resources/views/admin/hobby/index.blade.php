@@ -26,6 +26,7 @@
     <div class="row">
         <div class="col-12">
             <a href="#modal-create" data-bs-toggle="modal" class="btn btn-primary mb-2"><i class="fa fa-plus-square"></i> Tambah Data</a>
+            <a href="{{ route('hobby.export') }}" class="btn btn-success float-right text-white mb-2"><i class="fa-light fa-file-excel"></i> Export Excel</a>
             <div class="card">
                 <div class="card-body">
                     <h4 class="card-title">Data Hobi</h4>

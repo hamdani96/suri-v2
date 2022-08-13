@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\AnalysisExport;
 use App\Models\Analysis;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AnalysisController extends Controller
 {
@@ -90,5 +92,10 @@ class AnalysisController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function export()
+    {
+        return Excel::download(new AnalysisExport, 'Data Hasil Kuis.xlsx');
     }
 }

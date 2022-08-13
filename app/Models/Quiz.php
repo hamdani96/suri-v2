@@ -14,4 +14,14 @@ class Quiz extends Model
     protected $dates = ['deleted_at'];
 
     protected $guarded = ['created_at', 'updated_at'];
+
+    public function relatedCreatedBy()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+    public function relatedUpdatedBy()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
+    }
 }

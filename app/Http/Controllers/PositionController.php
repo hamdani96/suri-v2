@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\PositionExport;
 use App\Models\Position;
 use Illuminate\Http\Request;
 use Throwable;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PositionController extends Controller
 {
@@ -144,5 +146,10 @@ class PositionController extends Controller
         } catch (Throwable $e) {
             return redirect()->back()->with('error', $e->getMessage());
         }
+    }
+
+    public function export()
+    {
+        return Excel::download(new PositionExport, 'Data Jabatan.xlsx');
     }
 }

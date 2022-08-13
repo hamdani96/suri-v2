@@ -96,7 +96,7 @@
     <div class="row">
       <div class="col-lg-12 text-center zindex-1">
         <h1 class="mb-3">SURI<br>
-          System Resource Indikator</h1>
+          System Research Indikator</h1>
         <p class="mb-4">Lakukan kuis dan ketahui pelatihan apa yang cocok untuk kamu.</p>
         @if (Route::has('login'))
             @auth

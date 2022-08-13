@@ -38,19 +38,32 @@ Route::prefix('admin')->group(function() {
 });
 
 Route::prefix('hobby')->group(function() {
+    // export
+    Route::get('export', [HobbyController::class, 'export'])->name('hobby.export');
     Route::get('delete/{id}', [HobbyController::class, 'delete'])->name('hobby.delete');
 });
 
 Route::prefix('position')->group(function() {
+    Route::get('export', [PositionController::class, 'export'])->name('position.export');
     Route::get('delete/{id}', [PositionController::class, 'delete'])->name('position.delete');
 });
 
 Route::prefix('training')->group(function() {
+    Route::get('export', [TrainingController::class, 'export'])->name('training.export');
     Route::get('delete/{id}', [TrainingController::class, 'delete'])->name('training.delete');
 });
 
 Route::prefix('quiz')->group(function() {
+    Route::get('export', [QuizController::class, 'export'])->name('quiz.export');
     Route::get('delete/{id}', [QuizController::class, 'delete'])->name('quiz.delete');
+});
+
+Route::prefix('user')->group(function() {
+    Route::get('export', [UserController::class, 'export'])->name('user.export');
+});
+
+Route::prefix('analysis')->group(function() {
+    Route::get('export', [AnalysisController::class, 'export'])->name('analysis.export');
 });
 
 Route::resource('hobby', HobbyController::class);
