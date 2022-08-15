@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label for="">Nama Jabatan</label>
-                                <input type="text" name="position_name" value="{{ old('position_name', $position->position_name) }}" placeholder="Masukan nama jabatan" id="" class="form-control">
+                                <input type="text" name="position_name" value="{{ old('position_name', $position->position_name) }}" placeholder="Masukan nama jabatan" id="" required class="form-control">
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary d-block btn-block">Update</button>
