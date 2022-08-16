@@ -29,7 +29,7 @@
                         <div class="row">
                             <div class="from-group col-md-12 mb-2">
                                 <label for="">Pertanyaan <span class="text-danger">*</span></label>
-                                <textarea name="question" class="@error('question') is-invalid @enderror" id="editor">{{ old('question') }}</textarea>
+                                <textarea name="question" class="@error('question') is-invalid @enderror" id="editor" required>{{ old('question') }}</textarea>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">Jawaban (Ya) Memiliki Poin ? <span class="text-danger">*</span></label>

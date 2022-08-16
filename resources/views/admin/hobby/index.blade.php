@@ -72,7 +72,7 @@
                 <div class="row">
                     <div class="form-group col-md-12">
                         <label for="">Nama Hobi</label>
-                        <input type="text" name="hobby_name" value="{{ old('hobby_name') }}" placeholder="Masukan nama hobi" id="" class="form-control">
+                        <input type="text" name="hobby_name" value="{{ old('hobby_name') }}" required placeholder="Masukan nama hobi" id="" class="form-control">
                     </div>
                 </div>
             </div>

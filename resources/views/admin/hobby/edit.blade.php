@@ -33,7 +33,7 @@
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label for="">Nama Hobi</label>
-                                <input type="text" name="hobby_name" value="{{ old('hobby_name', $hobby->hobby_name) }}" placeholder="Masukan nama hobi" id="" class="form-control">
+                                <input type="text" name="hobby_name" value="{{ old('hobby_name', $hobby->hobby_name) }}" placeholder="Masukan nama hobi" id="" required class="form-control">
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary d-block btn-block">Update</button>

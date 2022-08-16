@@ -34,23 +34,23 @@
                         <div class="row">
                             <div class="form-group col-md-12">
                                 <label for="">Banner</label>
-                                <input type="file" class="dropify @error('image') is-invalid @enderror" name="image" />
+                                <input type="file" class="dropify @error('image') is-invalid @enderror" name="image" required />
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="">Judul Pelatihan <span class="text-danger">*</span></label>
-                                <input type="text" name="training_title" value="{{ old('training_title', $training->training_title) }}" placeholder="Masukan nama pelatihan" id="" class="form-control">
+                                <input type="text" name="training_title" value="{{ old('training_title', $training->training_title) }}" required placeholder="Masukan nama pelatihan" id="" class="form-control">
                             </div>
                             <div class="from-group col-md-12 mb-2">
                                 <label for="">Deskripsi <span class="text-danger">*</span></label>
-                                <textarea name="training_description" class="@error('training_description') is-invalid @enderror" id="editor">{{ old('training_description', $training->training_description) }}</textarea>
+                                <textarea name="training_description" class="@error('training_description') is-invalid @enderror" required id="editor">{{ old('training_description', $training->training_description) }}</textarea>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">Start Score <span class="text-danger">*</span></label>
-                                <input type="number" name="start_score" class="form-control" value="{{ old('start_score', $training->start_score) }}" id="">
+                                <input type="number" name="start_score" class="form-control" value="{{ old('start_score', $training->start_score) }}" required id="">
                             </div>
                             <div class="form-group col-md-6 ">
                                 <label for="">End Code <span class="text-danger">*</span></label>
-                                <input type="number" name="end_score" value="{{ old('end_score', $training->end_score) }}" id="" class="form-control">
+                                <input type="number" name="end_score" value="{{ old('end_score', $training->end_score) }}" id="" required class="form-control">
                             </div>
                             <div class="col-12">
                                 <button type="submit" class="btn btn-primary d-block btn-block">Update</button>
