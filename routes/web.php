@@ -68,6 +68,7 @@ Route::prefix('user')->group(function() {
 
 Route::prefix('analysis')->group(function() {
     Route::get('export', [AnalysisController::class, 'export'])->name('analysis.export');
+    Route::get('export_knn', [AnalysisController::class, 'exportKnn'])->name('analysis.export_knn');
     Route::get('export_pdf', [AnalysisController::class, 'export_pdf'])->name('analysis.export_pdf');
 });
 

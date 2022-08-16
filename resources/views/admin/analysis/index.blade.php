@@ -26,6 +26,7 @@
     <div class="row">
         <div class="col-12">
             <a href="{{ route('analysis.export') }}" class="btn btn-success float-right text-white mb-2"><i class="fa-light fa-file-excel"></i> Export Excel</a>
+            <a href="{{ route('analysis.export_knn') }}" class="btn btn-success float-right text-white mb-2" style="margin-right: 3px"><i class="fa-light fa-file-excel"></i> Export CSV (Format KNN)</a>
             <a href="{{ route('analysis.export_pdf') }}" class="btn btn-danger float-right text-white mb-2" style="margin-right: 3px"><i class="fa-light fa-file-pdf"></i> Export PDF</a>
         </div>
         <div class="col-12">

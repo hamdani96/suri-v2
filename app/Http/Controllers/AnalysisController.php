@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\AnalysisExport;
+use App\Exports\AnalysisKnnExport;
 use App\Models\Analysis;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -98,6 +99,11 @@ class AnalysisController extends Controller
     public function export()
     {
         return Excel::download(new AnalysisExport, 'Data Hasil Kuis.xlsx');
+    }
+
+    public function exportKnn()
+    {
+        return Excel::download(new AnalysisKnnExport, 'hasil_kuis.csv');
     }
 
     public function export_pdf()
